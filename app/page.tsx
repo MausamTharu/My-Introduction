@@ -7,14 +7,15 @@ export default function Home() {
           <div className="absolute -bottom-24 -right-24 w-80 h-80 bg-blue-500/20 blur-[120px] rounded-full pointer-events-none"></div>
           <div className="relative z-10 p-8 md:p-16 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
             <aside className="space-y-4 text-center md:text-left">
-              <h3 className="text-3xl md:text-5xl font-extrabold tracking-tight">
-                Welcome to my app!
+              <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight">
+                Wel Come To You 💗
               </h3>
-              <p className="text-slate-600 dark:text-slate-400 max-w-md mx-auto md:mx-0 leading-relaxed">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore fuga molestiae et, ut architecto in error laborum eum mollitia libero.
+              <p className="text-slate-600 pl-10 dark:text-slate-400 max-w-md mx-auto md:mx-0 leading-relaxed">
+                hi , I am Mausam
               </p>
+              <p className="text-slate-300 italic">I am Waiting for You</p>
               <button className="mt-4 px-6 py-2 bg-black dark:bg-white dark:text-black text-white rounded-full font-medium hover:opacity-80 transition">
-                Get Started
+                start
               </button>
             </aside>
             <div className="flex justify-center md:justify-end">
