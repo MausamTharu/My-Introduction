@@ -1,48 +1,78 @@
+"use client"
+import Link from "next/link";
+import Image from "next/image";
+import { FaGithub } from "react-icons/fa6";
+import { GiVillage } from "react-icons/gi";
+import { BiSolidPencil } from "react-icons/bi";
+import { TiDelete } from "react-icons/ti";
+import { useEffect, useState } from "react";
 export default function Home() {
+  const [input, setInput] = useState<string>("");
+  const datas  = ["apple","apolo" , "tata","google"];
+  const getInput = () => {
+    setInput("");
+  }
   return (
-    <main className="min-h-screen bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-white py-10 px-4 transition-colors duration-300">
-      <div className="container mx-auto flex flex-col gap-y-6">
-        <div className="relative overflow-hidden border border-black/5 dark:border-white/10 rounded-2xl bg-white/40 dark:bg-white/5 backdrop-blur-md shadow-xl">
-          <div className="absolute -top-24 -left-24 w-64 h-64 bg-purple-500/20 blur-[100px] rounded-full pointer-events-none"></div>
-          <div className="absolute -bottom-24 -right-24 w-80 h-80 bg-blue-500/20 blur-[120px] rounded-full pointer-events-none"></div>
-          <div className="relative z-10 p-8 md:p-16 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-            <aside className="space-y-4 text-center md:text-left">
-              <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight">
-                Wel Come To You 💗
-              </h3>
-              <p className="text-slate-600 pl-10 dark:text-slate-400 max-w-md mx-auto md:mx-0 leading-relaxed">
-                hi , I am Mausam
-              </p>
-              <p className="text-slate-300 italic">I am Waiting for You</p>
-              <button className="mt-4 px-6 py-2 bg-black dark:bg-white dark:text-black text-white rounded-full font-medium hover:opacity-80 transition">
-                start
-              </button>
-            </aside>
-            <div className="flex justify-center md:justify-end">
-              <div className="group relative">
-                <div className="absolute -inset-1 bg-linear-to-r from-purple-600 to-blue-500 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-                <code className="relative block rounded-lg p-6 bg-black dark:bg-neutral-900 border border-white/10 text-sm md:text-base shadow-2xl">
-                  <span className="text-blue-400">&lt;h3&gt;</span>
-                  <span className="text-white font-mono font-bold mx-2">Developed by Mausam</span>
-                  <span className="text-blue-400">&lt;/h3&gt;</span>
-                </code>
-              </div>
+    <main className="min-h-screen relative">
+      <header className="dark:bg-[#222] dark:text-white bg-white text-black  h-20 w-screen px-2.5 sm:p-0 sticky top-0 left-0 right-0 z-50 shadow dark:shadow-white/20 shadow-black/20">
+        <nav className=" container mx-auto h-full w-full flex justify-between items-center justify-items-stretch">
+          <div className="md:w-4/12 w-1/2 flex flex-row text-3xl gap-x-2">
+            <GiVillage />
+            <Link href={""}>Mausam</Link>
+          </div>
+          <div className="hidden md:w-full md:flex justify-center">
+            <div className="w-full flex justify-center ">
+              <label htmlFor="search" className="rounded-full bg-black/10 dark:bg-black/20 lg:w-8/10 md:w-6/10  p-2 pl-5 relative flex text-md">
+                <input type="search" className="w-full border-none outline-none pl-2" name="search" value={input} onChange={(e) => setInput(e.target.value)} id="search" placeholder="Search here" />
+                <TiDelete className="bg-black/40 rounded-full md:text-4xl  text-black/50 dark:text-white/50" onClick={getInput} />
+              </label>
+            </div>
+          </div>
+          <div className="md:w-4/12 w-1/2 flex justify-end text-3xl">
+            <Link href={'https://github.com//mausamtharu'}><FaGithub /></Link>
+          </div>
+        </nav>
+      </header>
+      <section className="container mx-auto h-screen flex flex-col py-2 z-0 ">
+        <div className="md:h-4/10 min-h-96 max-h-full bg-linear-to-b dark:from-[#222] from-white shadow-black/15 from-20% sm:rounded-md shadow dark:shadow-black/5 relative overflow-hidden flex flex-col sm:flex-row justify-around items-center px-10">
+          <div className=" md:aspect-video w-full h-52 dark:bg-black/5 rounded-none sm:rounded-sm ">
+            <h1 className="text-2xl font-bold mb-2">Hi, I'm <span className="text-pink-500">Mausam</span> 💗</h1>
+            <p className="text-lg font-medium text-gray-300 ">Full-Stack <span className="text-red-500">Architect</span> & <span className="text-sky-500">Problem Solver</span></p>
+            <p className="mt-4 text-sm leading-relaxed text-gray-400">
+              With 4+ years of hands-on experience, I build high-performance web ecosystems.
+              From crafting seamless UIs with Next.js and Tailwind to engineering robust backends
+              using NestJS, Rust, and Mojo js, I bridge the gap between complex logic and elegant design.
+            </p>
+          </div>
+          <div className="aspect-video h-full dark:bg-black/20 m-10 overflow-hidden relative object-cover">
+          <Image src={"/image/company.webp"} className="grayscale" alt="company image" fill/>
+          </div>
+        </div>
+        <div className="flex flex-col ">
+          <h3 className="self-center">this is My Info</h3>
+          <div className="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 [&>div]:h-52 [&>div]:bg-[#222]/15 gap-y-2 sm:gap-x-2 leading-relaxed"  >
+            <div>
+              <h1 className="text-center capitalize">fornt End Technalogy</h1>
+              <p>javascript,nodejs , react ,angular, nextjs freamwork ,rust , dioxus,sql ,java</p>
+            </div>
+            <div className="text-center capitalize">
+              <h1>backend technalogy</h1>
+              <p>express js ,  honojs , activ-web as rust freamwork , java backend etc.. </p>
+            </div>
+
+            <div >
+              <h1 className="text-center capitalize">database</h1>
+              <p>postgres , mongodb , mongoose , etc..</p>
+            </div>
+
+            <div>
+              <h1 className="text-center capitalize">tools</h1>
+              <p>Github , git , docker </p>
             </div>
 
           </div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 
-                        [&>div]:h-48 [&>div]:rounded-xl [&>div]:border [&>div]:border-black/10 
-                        [&>div]:dark:border-white/10 [&>div]:flex [&>div]:items-center 
-                        [&>div]:justify-center [&>div]:bg-white/50 [&>div]:dark:bg-white/5 
-                        [&>div]:backdrop-blur-sm [&>div]:font-medium [&>div]:shadow-sm">
-          <div>Item 1</div>
-          <div>Item 2</div>
-          <div>Item 3</div>
-          <div>Item 4</div>
-        </div>
-
-      </div>
+      </section>
     </main>
   );
 } 
