@@ -8,7 +8,7 @@ import { TiDelete } from "react-icons/ti";
 import { useEffect, useState } from "react";
 export default function Home() {
   const [input, setInput] = useState<string>("");
-  const datas  = ["apple","apolo" , "tata","google"];
+  const datas = ["apple", "apolo", "tata", "google"];
   const getInput = () => {
     setInput("");
   }
@@ -24,7 +24,7 @@ export default function Home() {
             <div className="w-full flex justify-center ">
               <label htmlFor="search" className="rounded-full bg-black/10 dark:bg-black/20 lg:w-8/10 md:w-6/10  p-2 pl-5 relative flex text-md">
                 <input type="search" className="w-full border-none outline-none pl-2" name="search" value={input} onChange={(e) => setInput(e.target.value)} id="search" placeholder="Search here" />
-                <TiDelete className="bg-black/40 rounded-full md:text-4xl  text-black/50 dark:text-white/50" onClick={getInput} />
+                <TiDelete className="bg-black/40 rounded-full  md:text-4xl  text-black/50 dark:text-white/50" onClick={getInput} />
               </label>
             </div>
           </div>
@@ -33,40 +33,52 @@ export default function Home() {
           </div>
         </nav>
       </header>
-      <section className="container mx-auto h-screen flex flex-col py-2 z-0 ">
-        <div className="md:h-4/10 min-h-96 max-h-full bg-linear-to-b dark:from-[#222] from-white shadow-black/15 from-20% sm:rounded-md shadow dark:shadow-black/5 relative overflow-hidden flex flex-col sm:flex-row justify-around items-center px-10">
-          <div className=" md:aspect-video w-full h-52 dark:bg-black/5 rounded-none sm:rounded-sm ">
-            <h1 className="text-2xl font-bold mb-2">Hi, I'm <span className="text-pink-500">Mausam</span> 💗</h1>
-            <p className="text-lg font-medium text-gray-300 ">Full-Stack <span className="text-red-500">Architect</span> & <span className="text-sky-500">Problem Solver</span></p>
-            <p className="mt-4 text-sm leading-relaxed text-gray-400">
+      <section className="container mx-auto min-h-screen flex flex-col py-4 px-4 gap-y-5 sm:px-0 z-0">
+        <div className="min-h-fit md:h-112.5  bg-linear-to-b dark:from-[#222] from-white shadow-black/15
+         from-20% sm:rounded-md shadow dark:shadow-black/5 relative overflow-hidden flex flex-col md:flex-row justify-between items-center p-6 md:px-10">
+          <div className="w-full md:w-1/2 flex flex-col justify-center text-center md:text-left order-2 md:order-1">
+            <h1 className="text-2xl md:text-4xl font-bold mb-2">
+              Hi, I'm <span className="text-pink-500">Mausam</span> 💗
+            </h1>
+            <p className="text-lg md:text-xl font-medium text-gray-400 dark:text-gray-300">
+              Full-Stack <span className="text-red-500">Architect</span> & <span className="text-sky-500">Problem Solver</span>
+            </p>
+            <p className="mt-4 text-sm md:text-base leading-relaxed text-gray-500 dark:text-gray-400 max-w-prose">
               With 4+ years of hands-on experience, I build high-performance web ecosystems.
               From crafting seamless UIs with Next.js and Tailwind to engineering robust backends
-              using NestJS, Rust, and Mojo js, I bridge the gap between complex logic and elegant design.
+              using NestJS, <span className="text-orange-500">Rust</span>, and <span className="text-orange-500">Mojo js</span>, I bridge the gap between complex logic and elegant design.
             </p>
           </div>
-          <div className="aspect-video h-full dark:bg-black/20 m-10 overflow-hidden relative object-cover">
-          <Image src={"/image/company.webp"} className="grayscale" alt="company image" fill/>
+          <div className="w-full md:w-[45%] aspect-video mb-8 md:mb-0 relative rounded-lg overflow-hidden dark:bg-black/20 order-1 md:order-2 shadow-lg">
+            <Image
+              src="/image/company.webp"
+              className="grayscale object-cover hover:grayscale-0 transition-all duration-300"
+              alt="company image"
+              fill
+              priority
+            />
           </div>
+
         </div>
-        <div className="flex flex-col ">
-          <h3 className="self-center">this is My Info</h3>
-          <div className="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 [&>div]:h-52 [&>div]:bg-[#222]/15 gap-y-2 sm:gap-x-2 leading-relaxed"  >
-            <div>
-              <h1 className="text-center capitalize">fornt End Technalogy</h1>
-              <p>javascript,nodejs , react ,angular, nextjs freamwork ,rust , dioxus,sql ,java</p>
+        <div className="flex flex-col gap-y-2">
+          <h3 className="self-center ">this is My Info</h3>
+          <div className="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 [&>div]:p-6 [&>div]:bg-[#222]/15 gap-y-2 sm:gap-x-2 [&>div]:rounded-md group [&>div]:group-hover:bg-[#222]/25" >
+            <div className="flex justify-center flex-col hover:-translate-y-4 ">
+              <h1 className="text-center text-xs uppercase">fornt End Technalogy</h1>
+              <p className="leading-relaxed ">javascript,nodejs , react ,angular, nextjs freamwork ,<span className="text-orange-500">Rust</span> , dioxus,sql ,java</p>
             </div>
-            <div className="text-center capitalize">
-              <h1>backend technalogy</h1>
-              <p>express js ,  honojs , activ-web as rust freamwork , java backend etc.. </p>
+            <div className="flex justify-center flex-col hover:-translate-y-4  ">
+              <h1 className="text-center text-xs uppercase">backend technalogy</h1>
+              <p>express js ,  <span className="text-orange-500">Hono js</span> , activ-web as rust freamwork , java backend etc.. </p>
             </div>
 
-            <div >
-              <h1 className="text-center capitalize">database</h1>
+            <div className="flex justify-center flex-col hover:-translate-y-4">
+              <h1 className="text-center text-xs uppercase">database</h1>
               <p>postgres , mongodb , mongoose , etc..</p>
             </div>
 
-            <div>
-              <h1 className="text-center capitalize">tools</h1>
+            <div className="flex justify-center flex-col hover:-translate-y-4">
+              <h1 className="text-center text-xs uppercase">tools</h1>
               <p>Github , git , docker </p>
             </div>
 
