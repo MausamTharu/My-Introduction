@@ -1,6 +1,7 @@
 
 
-
+bun dev
+npm run dev
 
  <!-- Deploy on Vercel -->
 
